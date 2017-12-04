@@ -1,11 +1,17 @@
 <div class='container-fluid sec2 '>
-    <h2>Ubica tu punto de acceso</h2>
+    <h2>Ubica tu punto de acceso</h2> 
     <p>Selecciona tu punto para ver detalles y calificar</p>
   <div >
-    
-    <img src='https://www.dcrainmaker.com/images/2010/07/48-hours-in-guatemala-city.png'>
+    <div class='container-fluid d-flex'>
+      <div class='row'>
+          <!--<agm-map [latitude]="lat" [longitude]="lng" [zoom]="6">
+              <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+            </agm-map>-->
+          <div id="map"></div>
   </div>
+  <app-questions></app-questions>
 
-  <div id="map"></div>
-
+  
+</div>
+</div>
 </div>
