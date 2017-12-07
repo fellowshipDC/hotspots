@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AgmCoreModule } from '@agm/core';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -11,6 +12,7 @@ import { QuestionsComponent } from './questions/questions.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { DatosComponent } from './datos/datos.component';
+import { GmapComponent } from './gmap/gmap.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { DatosComponent } from './datos/datos.component';
     QuestionsComponent,
     NavbarComponent,
     AboutComponent,
-    DatosComponent
+    DatosComponent,
+    GmapComponent
   ],
   imports: [
     BrowserModule,

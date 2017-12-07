@@ -10,8 +10,8 @@ import { google } from '@agm/core/services/google-maps-types';
   styleUrls: ['./map.component.styl']
 })
 export class MapComponent implements OnInit {
-  /*lat: number = 21.879426;
-  lng: number =  -101.266185;*/
+  lat: number = 19.386793;
+  lng: number =  -99.141562;
   
 
   constructor() { }
