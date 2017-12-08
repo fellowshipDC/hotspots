@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 declare const google: any;
 declare const map: any;
-declare const MarkerClusterer: any;
+declare var MarkerClusterer: any;
 
 @Component({
   selector: 'app-gmap',
@@ -35,26 +35,20 @@ export class GmapComponent implements OnInit {
                 center: center
               });
         
-              
-              var markers = [];
+              var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
               for(var i = 0; i < data.length; i++ ) {
                 var position = new google.maps.LatLng(data[i]['latitud'], data[i]['longitud']);
                 bounds.extend(position);
                 var marker = new google.maps.Marker({
                     position: position,
                     map: map,
-                   
+                    label: labels[i % labels.length]
 
                     
                 });
-                markers.push(marker);
-
-                var options = {
-                  imagePath: './assets/images/m'
-              };
-
-                var markerCluster = new MarkerClusterer(map, marker, options
-                  );
+                var markerCluster = new MarkerClusterer(map, marker,
+                  {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
                
             }
             

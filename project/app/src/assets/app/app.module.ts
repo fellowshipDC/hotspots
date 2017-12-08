@@ -13,7 +13,6 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { DatosComponent } from './datos/datos.component';
 import { GmapComponent } from './gmap/gmap.component';
-import { ScatterComponent } from './scatter/scatter.component';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { ScatterComponent } from './scatter/scatter.component';
     NavbarComponent,
     AboutComponent,
     DatosComponent,
-    GmapComponent,
-    ScatterComponent
+    GmapComponent
   ],
   imports: [
     BrowserModule,
