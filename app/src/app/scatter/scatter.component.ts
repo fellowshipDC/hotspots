@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as d3 from "d3";
-import { schemeCategory20c } from 'd3';
+import { schemeCategory20 } from 'd3';
 
 
 @Component({
@@ -15,8 +15,8 @@ export class ScatterComponent implements OnInit {
   ngOnInit() {
 
     var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 700 - margin.left - margin.right,
+    height = 700 - margin.top - margin.bottom;
 
 var x = d3.scaleLinear()
     .range([0, width]);
@@ -24,10 +24,10 @@ var x = d3.scaleLinear()
 var y = d3.scaleLinear()
     .range([height, 0]);
 
-var color = d3.scaleOrdinal(schemeCategory20c);
+var color = d3.scaleOrdinal(schemeCategory20);
 
- 
-  
+
+
 
 var svg = d3.select("#scatter").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -35,7 +35,7 @@ var svg = d3.select("#scatter").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("./assets/hotspots.csv", function(error, data) {
+d3.csv("./assets/hotspots.csv", function(error, data: object[]) {
   if (error) throw error;
   console.log(data);
 
@@ -44,8 +44,8 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
     d.longitud = +d.longitud  ;
   });
 
-  x.domain(d3.extent(data, function(d:any) { return d.latitud; }));
-  y.domain(d3.extent(data, function(d:any) { return d.longitud; }));
+  y.domain(d3.extent(data, function(d:any) { return d.latitud; }));
+  x.domain(d3.extent(data, function(d:any) { return d.longitud; }));
 
   svg.append("g")
   .attr("class", "x axis")
@@ -69,25 +69,33 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
   .style("text-anchor", "end")
   .text("Longitud")
 
- /* svg.selectAll("dot")
+ svg.selectAll("dot")
   .data(data)
   .enter().append("circle")
   .attr("class", "dot")
-  .attr("r", 3.5)
-  .attr("cx", 8 )
-  .attr("cy", 7)
-  .style("fill", '#eee');*/
+  .attr("r", 2.5)
+  .attr("cy", function(d: any) { return y(d.latitud); })
+  .attr("cx", function(d: any) { return x(d.longitud); })
+  .style("fill", function( d: any ) { return color(d.nombre_del_proveedor_mc); });
 
+  var legend = svg.selectAll(".legend")
+  .data(color.domain())
+.enter().append("g")
+  .attr("class", "legend")
+  .attr("transform", function(d, i) { return "translate(0," + i * 20 + ")"; });
 
-  /*svg.selectAll("dot")
-  .data(data)
-.enter().append("circle")
-  .attr("class", "dot")
-  .attr("r", 3.5)
-  .attr("cx", function(d: any) { return x(d.latitud); })
-  .attr("cy", function(d: any) { return y(d.longitud); })
-  .style("fill", function(d: any) { return color(d.nombre_del_proveedor); });*/
-  
+legend.append("rect")
+  .attr("x", width - 18)
+  .attr("width", 18)
+  .attr("height", 18)
+  .style("fill", color);
+
+legend.append("text")
+  .attr("x", width - 24)
+  .attr("y", 9)
+  .attr("dy", ".35em")
+  .style("text-anchor", "end")
+  .text(function(d) { return d; });
 
 });
 
