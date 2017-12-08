@@ -26,8 +26,8 @@ var y = d3.scaleLinear()
 
 var color = d3.scaleOrdinal(schemeCategory20c);
 
- 
-  
+
+
 
 var svg = d3.select("#scatter").append("svg")
     .attr("width", width + margin.left + margin.right)
@@ -35,7 +35,7 @@ var svg = d3.select("#scatter").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("./assets/hotspots.csv", function(error, data) {
+d3.csv("./assets/hotspots.csv", function(error, data: object[]) {
   if (error) throw error;
   console.log(data);
 
@@ -69,16 +69,14 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
   .style("text-anchor", "end")
   .text("Longitud")
 
- /* svg.selectAll("dot")
+ svg.selectAll("dot")
   .data(data)
   .enter().append("circle")
   .attr("class", "dot")
   .attr("r", 3.5)
-  .attr("cx", 8 )
-  .attr("cy", 7)
-  .style("fill", '#eee');*/
-
-
+  .attr("cx", function(d: any) { return x(d.latitud); })
+  .attr("cy", function(d: any) { return y(d.longitud); })
+  .style("fill", function(d: any) { return color(d.nombre_del_proveedor); });
 
 });
 
