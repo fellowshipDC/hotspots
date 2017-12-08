@@ -79,6 +79,15 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
   .style("fill", '#eee');*/
 
 
+  /*svg.selectAll("dot")
+  .data(data)
+.enter().append("circle")
+  .attr("class", "dot")
+  .attr("r", 3.5)
+  .attr("cx", function(d: any) { return x(d.latitud); })
+  .attr("cy", function(d: any) { return y(d.longitud); })
+  .style("fill", function(d: any) { return color(d.nombre_del_proveedor); });*/
+  
 
 });
 

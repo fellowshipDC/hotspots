@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 import { DatosComponent } from './datos/datos.component';
 import { GmapComponent } from './gmap/gmap.component';
 import { ScatterComponent } from './scatter/scatter.component';
+import { TreemapComponent } from './treemap/treemap.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ScatterComponent } from './scatter/scatter.component';
     AboutComponent,
     DatosComponent,
     GmapComponent,
-    ScatterComponent
+    ScatterComponent,
+    TreemapComponent
   ],
   imports: [
     BrowserModule,
