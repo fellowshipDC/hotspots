@@ -25,7 +25,7 @@ export class TreemapComponent implements OnInit {
   var nest = d3.nest()
   .key(function(d: any) { return d.nombre_del_proveedor_mc; })
   .key(function(d: any) { return d.estatus; })
-  .rollup(function(d: any) { return d3.sum<number>(d, function(c:any ) { return c.estatus; }); })
+  
   .entries(data);
  
 });
