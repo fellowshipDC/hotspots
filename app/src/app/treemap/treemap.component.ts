@@ -16,18 +16,18 @@ export class TreemapComponent implements OnInit {
 
   ngOnInit() {
 
-    
+
 
   d3.csv("./assets/hotspots.csv", function(error, data) {
   if (error) throw error;
   console.log(data);
 
-  var nest = d3.nest()
+  var nest = d3.nest<any, number>()
   .key(function(d: any) { return d.nombre_del_proveedor_mc; })
   .key(function(d: any) { return d.estatus; })
-  .rollup(function(d: any) { return d3.sum<number>(d, function(c:any ) { return c.estatus; }); })
+  .rollup(function(d: any) { return d3.sum(d, function(c: any ) { return c.estatus; }); })
   .entries(data);
- 
+
 });
 }
 }
