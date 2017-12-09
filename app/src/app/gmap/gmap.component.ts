@@ -27,7 +27,7 @@ export class GmapComponent implements OnInit {
               
         
               var center = {lat: 19.386793, lng: -99.141562};
-              var bounds = new google.maps.LatLngBounds();
+             
               console.log(data)
         
               var map = new google.maps.Map(document.getElementById('gmap'), {
@@ -35,8 +35,11 @@ export class GmapComponent implements OnInit {
                 center: center
               });
         
+            }
               
-              var markers = [];
+function createMarkers (){
+
+  var bounds = new google.maps.LatLngBounds();
               for(var i = 0; i < data.length; i++ ) {
                 var position = new google.maps.LatLng(data[i]['latitud'], data[i]['longitud']);
                 bounds.extend(position);
@@ -44,22 +47,32 @@ export class GmapComponent implements OnInit {
                     position: position,
                     map: map,
                    
-
+                
                     
                 });
-                markers.push(marker);
+               
+              
+                
+
+                marker.addListener('click', function() {
+
+                  map.setCenter(marker.getPosition());
+                  map.setZoom(19);
+                });
+              }
+               /* markers.push(marker);
 
                 var options = {
                   imagePath: './assets/images/m'
-              };
+              };*/
 
-                var markerCluster = new MarkerClusterer(map, marker, options
-                  );
+               // var markerCluster = new MarkerClusterer(map, marker, options
+                //  );
                
             }
             
             
-          }
+          
           
           
             initMap();

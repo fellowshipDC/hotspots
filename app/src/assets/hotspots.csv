@@ -1,4 +1,4 @@
-gid,clave_de_centro_de_trabajo,nombre_de_centro_de_trabajo,latitud,longitud,tipo_de_vialidad,nombre_de_calle,numero_exterior,numero_interior,nombre_del_proveedor_mc,tipo_de_conectividad,estatus
+gid,clave_de_centro_de_trabajo,nombre,latitud,longitud,vialidad,calle,numero_exterior,numero_interior,nombre_del_proveedor_mc,conectividad,estatus
 114965T,09NDI0460T,CENDI GDF S.G.P. Y V.N. NO. 1,19.42536778,-99.11746972,CALLE,CECILIO ROBELO,SIN NÚMERO,SIN NÚMERO,TOTAL PLAY,TERRESTRE,EN PROCESO DE INSTALACIÓN
 114964T,09NDI0463Q,CENDI SP S.C.J. DE LA NACION GLORIA LEON ORANTES,19.42901972,-99.11550222,PROLONGACIÓN,ING. EDUARDO MOLINA,SIN NÚMERO,SIN NÚMERO,TOTAL PLAY,TERRESTRE,EN PROCESO DE INSTALACIÓN
 114963T,09NDI0167P,CENDI GDF LUZ OLIVEROS SARMINA,19.45063222,-99.11025889,CALLE,ING. EDUARDO MOLINA,SIN NÚMERO,SIN NÚMERO,TOTAL PLAY,TERRESTRE,EN PROCESO DE INSTALACIÓN
