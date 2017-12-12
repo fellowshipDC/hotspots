@@ -1,15 +1,23 @@
 .node
     box-sizing border-box
-    line-height 1em
-    overflow hidden
     position absolute
+    overflow hidden
+
+.node-label
+    padding 4px
+    line-height 1em
     white-space pre
-    background #ddd
-
-.node-label,
-.node-value
-    margin 4px
+    z-index: 1000
 
 .node-value
-    margin-top -2px
-    font-weight bold
+    color rgba(0,0,0,0.8)
+    font-size 12px
+    margin-top 1px
+    z-index: 1000
+
+svg
+    font-family sans-serif
+    font-size 16px
+    width 960px
+    margin 1em auto
+    position relative

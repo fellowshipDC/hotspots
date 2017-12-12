@@ -71,10 +71,11 @@ arc.on('mouseover', function(d) {
   var percent = Math.round(1000 * d.data['totalc'] / 3728) / 10;
   console.log(percent)
 
-  tooltip.select('.estatus').html(d.data['tipo']);                // NEW
+  tooltip.select('.tipo').html(d.data['tipo']);                // NEW
   tooltip.select('.totalc').html(d.data['totalc']);                // NEW
   tooltip.select('.percent').html(percent + '%');             // NEW
   tooltip.style('display', 'block'); 
+  tooltip.style('opacity', 2);
  
 });                                                           // NEW
 

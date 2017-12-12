@@ -64,7 +64,7 @@ export class GmapComponent implements OnInit {
           }
           
           
-            
+            initMap();
            
       
           });

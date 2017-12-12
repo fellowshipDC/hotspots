@@ -30,7 +30,7 @@ export class ProveedorComponent implements OnInit {
      .attr('class', 'percent'); 
   
      
-  var svg = d3.select("#tipo").append("svg")
+  var svg = d3.select("#proveedor").append("svg")
     .attr("width", this.width)
     .attr("height", this.height),
     radius = Math.min(500, 300) / 2,
@@ -71,10 +71,11 @@ export class ProveedorComponent implements OnInit {
     var percent = Math.round(1000 * d.data['totalp'] / 3728) / 10;
     console.log(percent)
   
-    tooltip.select('.estatus').html(d.data['proveedor']);                // NEW
-    tooltip.select('.totalc').html(d.data['totalp']);                // NEW
+    tooltip.select('.proveedor').html(d.data['proveedor']);                // NEW
+    tooltip.select('.totalp').html(d.data['totalp']);                // NEW
     tooltip.select('.percent').html(percent + '%');             // NEW
     tooltip.style('display', 'block'); 
+    tooltip.style('opacity', 2)
    
   });                                                           // NEW
   

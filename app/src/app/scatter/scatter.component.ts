@@ -27,6 +27,8 @@ var y = d3.scaleLinear()
 var color = d3.scaleOrdinal(schemeCategory20);
 
 
+var div = d3.select("body").append("div")
+.attr("class", "tooltip");
 
 
 var svg = d3.select("#scatter").append("svg")
@@ -76,7 +78,22 @@ d3.csv("./assets/hotspots.csv", function(error, data: object[]) {
   .attr("r", 2.5)
   .attr("cy", function(d: any) { return y(d.latitud); })
   .attr("cx", function(d: any) { return x(d.longitud); })
-  .style("fill", function( d: any ) { return color(d.nombre_del_proveedor_mc); });
+  .style("fill", function( d: any ) { return color(d.nombre_del_proveedor_mc); })
+  .on('mouseover', function(d){
+  div.transition()
+  .duration(200)
+  .style('opacity', 2)
+  .style("fill", '#848484');
+  div.html(d['nombre_del_proveedor_mc'])
+  .style("left", (d3.event.pageX) + "px")
+  .style("top", (d3.event.pageY - 28) + "px");
+  })
+
+  .on("mouseout", function(d) {
+    div.transition()
+      .duration(500)
+      .style("opacity", 2);
+    });
 
   var legend = svg.selectAll(".legend")
   .data(color.domain())

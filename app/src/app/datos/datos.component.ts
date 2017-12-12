@@ -21,14 +21,13 @@ data: any;
     .attr('class', 'tooltip');                                    // NEW
                 
   tooltip.append('div')                                           // NEW
-    .attr('class', 'estatus');                                      // NEW
+    .attr('class', 'label');                                      // NEW
        
   tooltip.append('div')                                           // NEW
-    .attr('class', 'totale');  
+    .attr('class', 'count');  
     
-    //tooltip.append('div')                                           // NEW
-   // .attr('class', 'percent'); 
-
+  tooltip.append('div')                                           // NEW
+   .attr('class', 'percent'); 
    
 var estatus = d3.select("#estatus").append("svg")
   .attr("width", this.width)
@@ -65,16 +64,22 @@ arc.append("path")
   .attr("d", <any> path)
   .attr("fill", function(d: any) { return color(d.data.estatus); });
 
-arc.on('mouseover', function(d) {                            
-  
-                                                       
-  var percent = Math.round(1000 * d.data['totale'] / 3728) / 10;
-  console.log(percent)
 
-  tooltip.select('.estatus').html(d.data['estatus']);                // NEW
-  tooltip.select('.totale').html(d.data['totale']);                // NEW
+  
+
+
+
+arc.on('mouseover', function(d:any) {                            
+  
+
+  var percent = Math.round(1000 * d.data['totale'] / 3728) / 10;
+ 
+
+  tooltip.select('.label').html(d.data['estatus']);                // NEW
+  tooltip.select('.count').html(d.data['totale']);                // NEW
   tooltip.select('.percent').html(percent + '%');             // NEW
-  tooltip.style('display', 'block'); 
+  tooltip.style('display', 'block');
+  tooltip.style('opacity', 2) 
  
 });                                                           // NEW
 
