@@ -105,6 +105,7 @@ export class ProveedorComponent implements OnInit {
         legend.append('text')
   .attr('x', legendRectSize + legendSpacing)
   .attr('y', legendRectSize - legendSpacing)
+  .style("fill", "#6a6a6a")
   .text(function(d) { return d; });
           
   });

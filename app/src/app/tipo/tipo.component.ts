@@ -105,6 +105,7 @@ var legend = svg.selectAll('.legend')
       legend.append('text')
 .attr('x', legendRectSize + legendSpacing)
 .attr('y', legendRectSize - legendSpacing)
+.style("fill", "#6a6a6a")
 .text(function(d) { return d; });
         
 });

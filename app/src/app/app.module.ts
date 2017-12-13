@@ -19,6 +19,7 @@ import { TipoComponent } from './tipo/tipo.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
 import { EstatusComponent } from './estatus/estatus.component';
 import { DonutsComponent } from './donuts/donuts.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { DonutsComponent } from './donuts/donuts.component';
     TipoComponent,
     ProveedorComponent,
     EstatusComponent,
-    DonutsComponent
+    DonutsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

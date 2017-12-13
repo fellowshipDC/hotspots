@@ -9,7 +9,7 @@ import * as d3 from 'd3';
 export class TreemapComponent implements OnInit {
 
   width=800;
-   height=600;
+   height=700;
 
 
   constructor() { }
