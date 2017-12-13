@@ -17,6 +17,8 @@ import { ScatterComponent } from './scatter/scatter.component';
 import { TreemapComponent } from './treemap/treemap.component';
 import { TipoComponent } from './tipo/tipo.component';
 import { ProveedorComponent } from './proveedor/proveedor.component';
+import { EstatusComponent } from './estatus/estatus.component';
+import { DonutsComponent } from './donuts/donuts.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { ProveedorComponent } from './proveedor/proveedor.component';
     ScatterComponent,
     TreemapComponent,
     TipoComponent,
-    ProveedorComponent
+    ProveedorComponent,
+    EstatusComponent,
+    DonutsComponent
   ],
   imports: [
     BrowserModule,

@@ -92,7 +92,7 @@ d3.csv("./assets/hotspots.csv", function(error, data: object[]) {
   .on("mouseout", function(d) {
     div.transition()
       .duration(500)
-      .style("opacity", 2);
+      .style("opacity", 0);
     });
 
   var legend = svg.selectAll(".legend")

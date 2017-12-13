@@ -44,9 +44,7 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
 
   treemap(root);
 
-//   var offsets = document.getElementById('treemap').getBoundingClientRect();
-//   var div_top = offsets.top  + window.pageYOffset;
-//   var div_left = offsets.left + window.pageXOffset;
+
 
   var node = d3.select("#treemap")
       .selectAll(".node")

@@ -1,11 +1,17 @@
 <div class="container fluid">
     <h2>Nuestros Datos</h2>
     
-    <div class="row">
-
-    <div id='estatus'></div>
-    <app-tipo></app-tipo>
-    
-    <app-proveedor></app-proveedor>
-    </div>
+    <ul class="nav nav-tabs tab">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="donuts">General</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="scatter">Proveedor por ubicación</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="treemap">Estatus por proveedor</a>
+        </li>
+        
+      </ul>
+      
 </div>
