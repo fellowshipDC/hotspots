@@ -39,7 +39,7 @@ var svg = d3.select("#scatter").append("svg")
 
 d3.csv("./assets/hotspots.csv", function(error, data: object[]) {
   if (error) throw error;
-  console.log(data);
+  
 
   data.forEach(function(d:any) {
     d.latitud = +d.latitud;

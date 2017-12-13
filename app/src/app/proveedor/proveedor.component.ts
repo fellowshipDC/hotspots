@@ -54,7 +54,7 @@ export class ProveedorComponent implements OnInit {
   
   
   d3.csv("./assets/totales.csv", (data) => {
-  console.log(data);
+  
   
   var arc = g.selectAll(".arc")
   .data(pie(data))
