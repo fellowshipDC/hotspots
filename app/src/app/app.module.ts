@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AgmCoreModule } from '@agm/core';
+import {Ng2PageScrollModule} from 'ng2-page-scroll';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -42,6 +43,7 @@ import { FooterComponent } from './footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    Ng2PageScrollModule,
     AgmCoreModule.forRoot({
     apiKey:'AIzaSyCLTQRbxOojM8LIHje0zD-qtydA2TpbOAU'
     })

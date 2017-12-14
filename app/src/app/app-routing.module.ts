@@ -6,6 +6,7 @@ import { ScatterComponent } from './scatter/scatter.component';
 import { TreemapComponent } from './treemap/treemap.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { GmapComponent } from './gmap/gmap.component';
+import { DatosComponent } from './datos/datos.component';
 
 
 
@@ -32,7 +33,10 @@ const routes: Routes = [
     path: 'gmap',
     component: GmapComponent
   },
-
+  {
+    path: 'datos',
+    component: DatosComponent
+  }
   
 ];
 
