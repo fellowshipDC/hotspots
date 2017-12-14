@@ -9,7 +9,7 @@ var cors = require('cors');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var forest = require('./routes/hotspots');
+var hotspots = require('./routes/hotspots');
 
 var app = express();
 app.use(cors());
@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
+app.use('/hotspots', hotspots);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

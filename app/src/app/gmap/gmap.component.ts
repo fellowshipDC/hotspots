@@ -14,14 +14,15 @@ export class GmapComponent implements OnInit {
 
   lat: number = 19.386793;
   lng: number =  -99.141562;
-  
+  dataset: any =[];
 
   constructor() {
     
    }
   ngOnInit() {
 
-    d3.csv('./assets/hotspots.csv', (data) => {
+    d3.csv('./assets/hotspotscut.csv', (data) => {
+      this.dataset = data;
       
             function initMap() {
               
@@ -53,7 +54,7 @@ export class GmapComponent implements OnInit {
 markers.forEach(function(marker){
 
   marker.addListener('click', function() {
-                      marker.innerHTML = ''
+                      marker.innerHTML = "<div  *ngFor='let data of dataset'>"+"<a [routerLink]='['/questions',data.id]' routerLinkActive='active'>"+"</a></div>";
                       map.setCenter(marker.getPosition());
                       map.setZoom(19);
                     });
