@@ -18,7 +18,7 @@ export class QuestionsComponent implements OnInit {
 
   ngOnInit() {
 
-    d3.csv('./assets/hotspots.csv', (error,data) => {
+    d3.csv('./assets/hotspotscut.csv', (error,data) => {
       this.data = data.filter((the) => {
         this.route.params.subscribe(params => { this.gid = params['gid']});
         return the.id == this.gid})[0];

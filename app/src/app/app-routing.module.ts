@@ -5,6 +5,7 @@ import { DonutsComponent } from './donuts/donuts.component';
 import { ScatterComponent } from './scatter/scatter.component';
 import { TreemapComponent } from './treemap/treemap.component';
 import { QuestionsComponent } from './questions/questions.component';
+import { GmapComponent } from './gmap/gmap.component';
 
 
 
@@ -26,7 +27,12 @@ const routes: Routes = [
   {
     path: 'questions',
     component: QuestionsComponent
-  }
+  },
+  {
+    path: 'gmap',
+    component: GmapComponent
+  },
+
   
 ];
 

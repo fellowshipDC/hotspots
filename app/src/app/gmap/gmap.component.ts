@@ -14,7 +14,7 @@ export class GmapComponent implements OnInit {
 
   lat: number = 19.386793;
   lng: number =  -99.141562;
-  dataset: any =[];
+  
 
   constructor() {
     
@@ -22,7 +22,7 @@ export class GmapComponent implements OnInit {
   ngOnInit() {
 
     d3.csv('./assets/hotspotscut.csv', (data) => {
-      this.dataset = data;
+      
       
             function initMap() {
               
@@ -36,6 +36,7 @@ export class GmapComponent implements OnInit {
                 center: center
               });
         
+            
               
               var markers = []
               for(var i = 0; i < data.length; i++ ) {
@@ -48,22 +49,22 @@ export class GmapComponent implements OnInit {
                 
                     
                 });
-               
-              markers.push(marker);
                 
-markers.forEach(function(marker){
+               
+              markers.push(marker);           
+                
+                  markers.forEach(function(marker){
 
-  marker.addListener('click', function() {
-                      marker.innerHTML = "<div  *ngFor='let data of dataset'>"+"<a [routerLink]='['/questions',data.id]' routerLinkActive='active'>"+"</a></div>";
-                      map.setCenter(marker.getPosition());
-                      map.setZoom(19);
+                  marker.addListener('click', function() {
+                  map.setCenter(marker.getPosition());
+                  map.setZoom(19);
                     });
-});
+            });
               
                
                
             }
-            
+            var markerCluster = new MarkerClusterer(map, markers, {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
             
           }
           
