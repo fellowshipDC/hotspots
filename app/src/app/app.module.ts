@@ -21,6 +21,7 @@ import { ProveedorComponent } from './proveedor/proveedor.component';
 import { EstatusComponent } from './estatus/estatus.component';
 import { DonutsComponent } from './donuts/donuts.component';
 import { FooterComponent } from './footer/footer.component';
+import { MapService } from './services/map.service';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,7 @@ import { FooterComponent } from './footer/footer.component';
     apiKey:'AIzaSyCLTQRbxOojM8LIHje0zD-qtydA2TpbOAU'
     })
   ],
-  providers: [],
+  providers: [MapService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

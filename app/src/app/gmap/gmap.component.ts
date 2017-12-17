@@ -1,5 +1,6 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as d3 from 'd3';
+import { MapService } from '../services/map.service';
 
 declare const google: any;
 declare const map: any;
@@ -17,7 +18,7 @@ export class GmapComponent implements OnInit {
     nombre: 'Juan Valdes'
   };
 
-  constructor() {}
+  constructor(private mapService: MapService) {}
 
   initMap() {
     const center = { lat: 19.4286973, lng: -99.156051 };
@@ -43,6 +44,7 @@ export class GmapComponent implements OnInit {
       map.setCenter(marker.getPosition());
       map.setZoom(19);
       this.data = data;
+      this.mapService.setData(this.data);
     });
 
     return marker;
