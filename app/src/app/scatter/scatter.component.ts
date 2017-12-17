@@ -155,7 +155,18 @@ ngOnInit() {
   
   
   var div = d3.select("#scatter").append("div")
-  .attr("class", "tooltip");
+  .attr("class", "tooltip")
+  .style('box-shadow', "0 0 5px #999")
+  .style('font-size', "12px")
+  .style('padding', "10px")
+  .style('text-align', "center")
+  .style('width', "120px")
+  .style('line-heigth', "140%")
+  .style('font-weight', "600")
+  .style('color', "#fff")
+  .style('background', "#000")
+  .style('border-radius', "2px")
+  .style("opacity", 0); 
   
   
   var svg = d3.select("#scatter").append("svg")

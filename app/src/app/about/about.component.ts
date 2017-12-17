@@ -38,7 +38,21 @@ d3.csv("./assets/mxconectado.csv", function(d:any) {
 
   var line = d3.line()
     .x(function(d:any ) { return x(d.año); })
-    .y(function(d:any) { return y(d.value); })
+    .y(function(d:any) { return y(d.total); })
+
+    var tool = d3.select("#line").append("div")
+    .attr("class", "tooltip")
+    .style('box-shadow', "0 0 5px #999")
+    .style('font-size', "12px")
+    .style('padding', "10px")
+    .style('text-align', "center")
+    .style('width', "90px")
+    .style('line-heigth', "140%")
+    .style('font-weight', "600")
+    .style('color', "#fff")
+    .style('background', "#000")
+    .style('border-radius', "2px")
+    .style("opacity", 0); 
 
   x.domain(data.map(function(d) { return d.año; }));
 
@@ -58,9 +72,12 @@ d3.csv("./assets/mxconectado.csv", function(d:any) {
       .attr("text-anchor", "end")
       .text("Frequency");
 
-  g.append("line")
-    .datum(data)
+  g.append("path")
+    .data([data])
     .attr("class", "line")
+    .attr('fill', 'none')
+    .attr('stroke', '#2181BB')
+    .attr('stroke-width', '4')       
     .attr("d", line);
 
   g.selectAll("circle")
@@ -69,7 +86,26 @@ d3.csv("./assets/mxconectado.csv", function(d:any) {
     .attr("class", "circle")
     .attr("cx", function(d) { return x(d.año); })
     .attr("cy", function(d) { return y(d.total); })
-    .attr("r", 4);
+    .attr("r", 7)
+    .attr('fill', '#97C9E0')
+    .attr('stroke', "white")
+    .on('mouseover', function(d){
+      tool.transition()
+      .duration(200)
+      .style('opacity', 2)
+      .style("fill", '#848484');
+      tool.html(d['total'] + "<br/>"+ " conexiones")
+      .style("left", (d3.event.pageX) + "px")
+      .style("top", (d3.event.pageY - 28) + "px")
+  
+      })
+    
+      .on("mouseout", function(d) {
+        tool.transition()
+          .duration(500)
+          .style("opacity", 0);
+        });
+   
 });
 
 

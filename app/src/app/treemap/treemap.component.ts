@@ -51,6 +51,10 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
       .data(root.leaves())
       .enter().append("rect")
       .attr("class", "node")
+      .style('box-sizing','border-box')
+      .style('overflow','hidden')
+      .style('position','overflow')
+      
       .style("x", function(d: any) { return d.x0 + "px"; })
       .style("y", function(d: any ) { return d.y0 + "px"; })
       .style("width", function(d: any) { return d.x1 - d.x0 + "px"; })
@@ -59,7 +63,10 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
       .attr("title",function(d: any){ return d.parent.data.key; });
 
   node.append("div")
-      .attr("class", "node-label")
+      .style('white-space','pre')
+      .style('z-index','1000')
+      .style('padding','4px')
+      .style('line-height','1em')
       .text(function(d:any) { return d.data.key; });
 
   node.append("div")
