@@ -43,7 +43,6 @@ export class GmapComponent implements OnInit {
       map.setCenter(marker.getPosition());
       map.setZoom(19);
       this.data = data;
-      console.log('this data', this.data);
     });
 
     return marker;

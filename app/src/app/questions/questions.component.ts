@@ -8,17 +8,12 @@ import * as d3 from 'd3';
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.styl']
 })
-export class QuestionsComponent implements OnInit, OnChanges {
+export class QuestionsComponent implements OnInit {
 
   gid: any;
   @Input() data;
 
   constructor(private route: ActivatedRoute) { }
-
-  ngOnChanges(changes: SimpleChanges) {
-    this.data = changes.data.currentValue;
-    console.log("on changes", this.data);
-  }
 
   ngOnInit() {
 
