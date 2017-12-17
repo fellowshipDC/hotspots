@@ -76,15 +76,15 @@ arc.on('mouseover', function(d:any) {
   var percent = Math.round(1000 * d.data['totale'] / 3728) / 10;
  
 
-  tooltip.select('.label').html(d.data['estatus']);                // NEW
-  tooltip.select('.count').html(d.data['totale']);                // NEW
-  tooltip.select('.percent').html(percent + '%');             // NEW
+  tooltip.select('.label').html(d.data['estatus']);                
+  tooltip.select('.count').html(d.data['totale']);                
+  tooltip.select('.percent').html(percent + '%');             
   tooltip.style('display', 'block');
   tooltip.style('opacity', 2) 
  
-});                                                           // NEW
+});                                                           
 
-arc.on('mouseout', function(d: any) {                              // NEW
+arc.on('mouseout', function(d: any) {                              
   tooltip.style('display', 'none');                           // NEW
 });  
 

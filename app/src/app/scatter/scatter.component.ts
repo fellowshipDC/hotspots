@@ -154,7 +154,7 @@ ngOnInit() {
   var color = d3.scaleOrdinal(schemeCategory20);
   
   
-  var div = d3.select("body").append("div")
+  var div = d3.select("#scatter").append("div")
   .attr("class", "tooltip");
   
   
@@ -167,6 +167,8 @@ ngOnInit() {
   d3.csv("./assets/hotspots.csv", function(error, data: object[]) {
     if (error) throw error;
     
+
+   
   
     data.forEach(function(d:any) {
       d.latitud = +d.latitud;
@@ -176,27 +178,27 @@ ngOnInit() {
     y.domain(d3.extent(data, function(d:any) { return d.latitud; }));
     x.domain(d3.extent(data, function(d:any) { return d.longitud; }));
   
-    svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x))
-  .append("text")
-    .attr("class", "label")
-    .attr("x", width)
-    .attr("y", -6)
-    .style("text-anchor", "end")
-    .text("Latitud");
+  //   svg.append("g")
+  //   .attr("class", "x axis")
+  //   .attr("transform", "translate(0," + height + ")")
+  //   .call(d3.axisBottom(x))
+  // .append("text")
+  //   .attr("class", "label")
+  //   .attr("x", width)
+  //   .attr("y", -6)
+  //   .style("text-anchor", "end")
+  //   .text("Latitud");
   
-    svg.append("g")
-    .attr("class", "y axis")
-    .call(d3.axisLeft(y))
-  .append("text")
-    .attr("class", "label")
-    .attr("transform", "rotate(-90)")
-    .attr("y", 6)
-    .attr("dy", ".71em")
-    .style("text-anchor", "end")
-    .text("Longitud")
+  //   svg.append("g")
+  //   .attr("class", "y axis")
+  //   .call(d3.axisLeft(y))
+  // .append("text")
+  //   .attr("class", "label")
+  //   .attr("transform", "rotate(-90)")
+  //   .attr("y", 6)
+  //   .attr("dy", ".71em")
+  //   .style("text-anchor", "end")
+  //   .text("Longitud")
   
    svg.selectAll("dot")
     .data(data)
@@ -239,7 +241,24 @@ ngOnInit() {
     .attr("y", 9)
     .attr("dy", ".35em")
     .style("text-anchor", "end")
-    .text(function(d) { return d; });
+    .text(function(d:any) { return d });
+
+    legend.on("mouseover", function(type) {
+      d3.selectAll(".legend")
+        .style("opacity", 0.1);
+      d3.select(this)
+        .style("opacity", 1);
+      d3.selectAll(".dot")
+        .style("opacity", 0.01)
+        .filter(function(d) { return d["nombre_del_proveedor_mc"] == type; })
+        .style("opacity", 1);
+    })
+    .on("mouseout", function(type) {
+      d3.selectAll(".legend")
+        .style("opacity", 1);
+      d3.selectAll(".dot")
+        .style("opacity", 1);
+    });
   
   });
   
