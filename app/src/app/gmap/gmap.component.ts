@@ -12,8 +12,10 @@ declare const MarkerClusterer: any;
 })
 export class GmapComponent implements OnInit {
 
-  dataset: any = [];
-  marker;
+  dataset;
+  data = {
+    nombre: 'Juan Valdes'
+  };
 
   constructor() {}
 
@@ -28,8 +30,8 @@ export class GmapComponent implements OnInit {
     return map;
   }
 
-  addMarker(map, lat, lng) {
-    const position = new google.maps.LatLng(lat, lng);
+  addMarker(map, data) {
+    const position = new google.maps.LatLng(data.latitud, data.longitud);
     const bounds = new google.maps.LatLngBounds();
     bounds.extend(position);
     const marker = new google.maps.Marker({
@@ -40,7 +42,8 @@ export class GmapComponent implements OnInit {
     marker.addListener('click', () => {
       map.setCenter(marker.getPosition());
       map.setZoom(19);
-      this.marker = marker;
+      this.data = data;
+      console.log('this data', this.data);
     });
 
     return marker;
@@ -53,12 +56,12 @@ export class GmapComponent implements OnInit {
     d3.csv('./assets/hotspotscut.csv', (data) => {
       this.dataset = data;
 
-      console.log(this.dataset);
+      // console.log(this.dataset);
 
       const map = this.initMap();
 
       this.dataset.map((data) => {
-        const marker = this.addMarker(map, data.latitud, data.longitud);
+        const marker = this.addMarker(map, data);
         markers.push(marker);
       });
 
