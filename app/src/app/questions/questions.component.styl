@@ -1,12 +1,9 @@
 
 .cont
     background-color: #0076AE
-    width: 550px
-    height: auto
-    margin-left: 100px
-    padding 25px
     color white
-    
+    height 100%
+
 
 fieldset, label
     margin 0
@@ -38,14 +35,14 @@ h1
             content "\f089"
             position absolute
 
-.rating > input:checked ~ label, 
-.rating:not(:checked) > label:hover, 
+.rating > input:checked ~ label,
+.rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label
     color #FFD700
 
-.rating > input:checked + label:hover, 
+.rating > input:checked + label:hover,
 .rating > input:checked ~ label:hover,
-.rating > label:hover ~ input:checked ~ label, 
+.rating > label:hover ~ input:checked ~ label,
 .rating > input:checked ~ label:hover ~ label
     color #FFED85
 

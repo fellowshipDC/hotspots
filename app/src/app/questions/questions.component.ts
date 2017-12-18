@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core';
+import { MapService } from '../services/map.service';
+import { Subscription } from 'rxjs/Subscription';
 
 import * as d3 from 'd3';
 
@@ -10,19 +11,31 @@ import * as d3 from 'd3';
 })
 export class QuestionsComponent implements OnInit {
 
-  data: any;
   gid: any;
 
+  subscription: Subscription;
 
-  constructor(private route: ActivatedRoute) { }
+  text = 'fsdfsd';
+
+  data: object;
+
+  constructor(private mapService: MapService) { }
 
   ngOnInit() {
 
-    d3.csv('./assets/hotspotscut.csv', (error,data) => {
+    this.subscription = this.mapService.data$.subscribe(
+      data => {
+        console.log(data);
+        this.data = data;
+      });
+
+    /*d3.csv('./assets/hotspotscut.csv', (error,data) => {
       this.data = data.filter((the) => {
         this.route.params.subscribe(params => { this.gid = params['gid']});
         return the.id == this.gid})[0];
 
       });
-    }
+    }*/
   }
+
+}
