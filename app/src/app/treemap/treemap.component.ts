@@ -8,7 +8,7 @@ import * as d3 from 'd3';
 })
 export class TreemapComponent implements OnInit {
 
-  width=800;
+  width=700;
    height=700;
 
 
@@ -16,7 +16,7 @@ export class TreemapComponent implements OnInit {
 
   ngOnInit() {
 
-    var svg = d3.select("svg"),
+    var svg = d3.select("#treemap"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
 
@@ -49,17 +49,17 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
   var node = d3.select("#treemap")
       .selectAll(".node")
       .data(root.leaves())
-      .enter().append("rect")
-      .attr("class", "node")
+      .enter().append("div")
+      
       .style('box-sizing','border-box')
       .style('overflow','hidden')
-      .style('position','overflow')
+      .style('position','absolute')
       
-      .style("x", function(d: any) { return d.x0 + "px"; })
-      .style("y", function(d: any ) { return d.y0 + "px"; })
+      .style("left", function(d: any) { return d.x0 + 370 +"px"; })
+      .style("top", function(d: any ) { return d.y0 + 2200 + "px"; })
       .style("width", function(d: any) { return d.x1 - d.x0 + "px"; })
       .style("height", function(d: any) { return d.y1 - d.y0 + "px"; })
-      .style("fill", function(d:any) { return color(d.parent.data.key); })
+      .style("background", function(d:any) { return color(d.parent.data.key); })
       .attr("title",function(d: any){ return d.parent.data.key; });
 
   node.append("div")
@@ -67,11 +67,13 @@ d3.csv("./assets/hotspots.csv", function(error, data) {
       .style('z-index','1000')
       .style('padding','4px')
       .style('line-height','1em')
-      .text(function(d:any) { return d.data.key; });
+      .style('font-size','14px')
+      .text(function(d:any) { return d.parent.data.key + "\n" + d.data.key; });
 
   node.append("div")
       .attr("class", "node-value")
-      .text(function(d) { return format(d.value); });
+      .style('font-size','12px')
+      .text(function(d) { return format(d.value) + " conexiones"; });
 
 });
 
